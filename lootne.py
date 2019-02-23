@@ -5,24 +5,19 @@
 # http://www.easynepalityping.com/resource_dynamic/babynames/nepal/nepalGirlK.html
 
 
-import string
+
 from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup as Soup
 
-letters = list(string.ascii_uppercase)
+from gen_letter import *
+
 save_dir = Path.cwd().joinpath("luteko-data")
 
 for l in letters:
-    loot_boy = {
-        'url': f'http://www.easynepalityping.com/resource_dynamic/babynames/nepal/nepalBoy{l}.html',
-        'file' : f'boy_{l}.html'
-        }
-    loot_girl =  {
-        'url':  f'http://www.easynepalityping.com/resource_dynamic/babynames/nepal/nepalGirl{l}.html',
-        'file' : f'girl_{l}.html'
-        }
+
+
     print ( f"Getting File: {loot_boy.get('file')}" )
     r1 = requests.get(loot_boy.get('url'), allow_redirects=True)
     print ( f"Getting File: {loot_girl.get('file')}" )
