@@ -1,16 +1,60 @@
 <html>
-    <head>
+
+<head>
         <title>
                 Ramesh Uncle Ko Xoro/Xori Namme Generator
-        </title></head>
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/2.3.7/cash.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./assets/sexytyles.css">.
+</head>
 
-        <body>
-            <button>
-                    Generate More Names:
-            </button>
-            <input id="kati_ota"  value="5">
-            <table>
+<body>
+        <p>
+                This site is made using latest technologies of HTML7, CSS6 and ES2030
+        </p>
+        <button id="gen_btn">
+                Generate More Names:
+        </button>
+        <input id="gen_nums" value="5">
+        <select>
+                <option>Any</option>
+                <option>Boy</option>
+                <option>Girl</option>
+                <option>I dont know. I have both. </option>
+        </select>
+        <ul id="proto_list">
 
-            </table>
-        </body>
+        </ul>
+</body>
+<script src="./assets/main.js" ></script>
+<script src="./assets/random_ko_baan.js" ></script>
+<script>
+        init_payload = false
+        document.addEventListener("DOMContentLoaded", function (event) {
+                console.log("DOM fully loaded and parsed");
+                if (!init_payload) {
+                        main()
+                        init_payload = true
+                }
+                gen_btn = document.getElementById("gen_btn")
+                gen_btn.addEventListener("click", function () {
+
+
+                        for (const i of times(15)) {
+                                fname = getRandomFirstName()
+                                lname = getRandomIndex(getRandomVal(last_names))
+                                // This isnt jQuery I swear
+                                $("#proto_list").append(`<li>${fname} ${lname} </li>`)
+                                console.log(fname, lname)
+                        }
+
+
+                }, false);
+        });
+</script>
+
+<div class="footer">
+        Copyright left taala maathi 2019
+        <strong>Cswl Coldwind</strong>.</div>
+
 </html>
